@@ -1,0 +1,59 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.sqlite3
+*.db
+db.sqlite3
+local_settings.py
+.env
+.env.*
+
+# Media & static (if generated)
+media/
+staticfiles/
+
+# Django migrations (optional: if you want to regenerate)
+**/migrations/
+!**/migrations/__init__.py
+
+# VS Code, PyCharm, etc.
+.vscode/
+.idea/
+
+# Environment & virtualenv
+venv/
+env/
+ENV/
+.venv/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Test coverage
+htmlcov/
+.coverage
+coverage.xml
+.cache
+
+# MyPy & Pytest
+.mypy_cache/
+.pytest_cache/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Node modules (if using JS frontend)
+node_modules/
