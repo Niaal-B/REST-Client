@@ -1,23 +1,71 @@
+# 1. GET request to retrieve all products
 GET http://127.0.0.1:8000/products/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0NzMwMTM3LCJpYXQiOjE3NDQ3Mjk4MzcsImp0aSI6IjlmZTE0NjUwNGY5NTQ3NmFiYWJkZDVmNzM2NTk0YTRhIiwidXNlcl9pZCI6MX0.6ZDgHMVsNS2QC1yZf5ixGV5WI4QbeVqvM3p7qnvoW6M
 
-###
-POST http://127.0.0.1:8000/products/
+# 2. GET request for a specific product
+GET http://127.0.0.1:8000/products/1/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0NzMwMTM3LCJpYXQiOjE3NDQ3Mjk4MzcsImp0aSI6IjlmZTE0NjUwNGY5NTQ3NmFiYWJkZDVmNzM2NTk0YTRhIiwidXNlcl9pZCI6MX0.6ZDgHMVsNS2QC1yZf5ixGV5WI4QbeVqvM3p7qnvoW6M
+
+# 3. POST request to create a new product
+POST http://127.0.0.1:8000/products/ HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0NzMwMTM3LCJpYXQiOjE3NDQ3Mjk4MzcsImp0aSI6IjlmZTE0NjUwNGY5NTQ3NmFiYWJkZDVmNzM2NTk0YTRhIiwidXNlcl9pZCI6MX0.6ZDgHMVsNS2QC1yZf5ixGV5WI4QbeVqvM3p7qnvoW6M
 
 {
-  "description": "Good TV",
-  "name": "Television",
-  "price": 300.00,
-  "stock": 14
+  "description": "High-end Laptop",
+  "name": "Laptop",
+  "price": 1200.00,
+  "stock": 8
 }
 
+# 4. PUT request to update an existing product
+PUT http://127.0.0.1:8000/products/1/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0NzMwMTM3LCJpYXQiOjE3NDQ3Mjk4MzcsImp0aSI6IjlmZTE0NjUwNGY5NTQ3NmFiYWJkZDVmNzM2NTk0YTRhIiwidXNlcl9pZCI6MX0.6ZDgHMVsNS2QC1yZf5ixGV5WI4QbeVqvM3p7qnvoW6M
 
-###
+{
+  "description": "Updated Laptop with more RAM",
+  "name": "Laptop",
+  "price": 1300.00,
+  "stock": 10
+}
+
+# 5. DELETE request to remove a product
+DELETE http://127.0.0.1:8000/products/1/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0NzMwMTM3LCJpYXQiOjE3NDQ3Mjk4MzcsImp0aSI6IjlmZTE0NjUwNGY5NTQ3NmFiYWJkZDVmNzM2NTk0YTRhIiwidXNlcl9pZCI6MX0.6ZDgHMVsNS2QC1yZf5ixGV5WI4QbeVqvM3p7qnvoW6M
+
+# 6. POST request to get a new token (authentication)
 POST http://127.0.0.1:8000/api/token/ HTTP/1.1
 Content-Type: application/json
 
 {
   "username": "admin",
-  "password" : "test"
+  "password": "test"
+}
+
+# 7. PATCH request to update part of a product
+PATCH http://127.0.0.1:8000/products/1/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0NzMwMTM3LCJpYXQiOjE3NDQ3Mjk4MzcsImp0aSI6IjlmZTE0NjUwNGY5NTQ3NmFiYWJkZDVmNzM2NTk0YTRhIiwidXNlcl9pZCI6MX0.6ZDgHMVsNS2QC1yZf5ixGV5WI4QbeVqvM3p7qnvoW6M
+
+{
+  "price": 1100.00
+}
+
+# 8. GET request to view the authenticated user's details
+GET http://127.0.0.1:8000/users/me/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0NzMwMTM3LCJpYXQiOjE3NDQ3Mjk4MzcsImp0aSI6IjlmZTE0NjUwNGY5NTQ3NmFiYWJkZDVmNzM2NTk0YTRhIiwidXNlcl9pZCI6MX0.6ZDgHMVsNS2QC1yZf5ixGV5WI4QbeVqvM3p7qnvoW6M
+
+# 9. GET request to fetch all users
+GET http://127.0.0.1:8000/users/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0NzMwMTM3LCJpYXQiOjE3NDQ3Mjk4MzcsImp0aSI6IjlmZTE0NjUwNGY5NTQ3NmFiYWJkZDVmNzM2NTk0YTRhIiwidXNlcl9pZCI6MX0.6ZDgHMVsNS2QC1yZf5ixGV5WI4QbeVqvM3p7qnvoW6M
+
+# 10. POST request to create a new user
+POST http://127.0.0.1:8000/users/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "new_user",
+  "password": "securepassword123",
+  "email": "newuser@example.com"
 }
